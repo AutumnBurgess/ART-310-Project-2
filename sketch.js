@@ -11,6 +11,7 @@ function setup() {
 
 function draw() {
   background(220);
+  ellipse(width / 2, height / 2, 100);
   for (let rowNumber = 0; rowNumber < dataTable.getRowCount(); rowNumber++) {
     let row = dataTable.getRow(rowNumber);
     let x = 100;
