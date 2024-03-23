@@ -17,7 +17,7 @@
             "index": 3,
             "color": "white",
             "plate": "al",
-            "rear-view": "Air Freshener",
+            "rear_view": "Air Freshener",
             "stickers": [
                 "Air Force logo"
             ]
@@ -42,7 +42,7 @@
             "index": 6,
             "color": "blue",
             "plate": "ge",
-            "rear-view": "Air Freshener"
+            "rear_view": "Air Freshener"
         },
         {
             "row": 0,
@@ -55,7 +55,7 @@
             "index": 8,
             "color": "blue",
             "plate": "LB",
-            "rear-view": "Tassel",
+            "rear_view": "Tassel",
             "stickers": [
                 "MSU logo",
                 "Dog",
@@ -89,49 +89,49 @@
             "index": 15,
             "color": "silver",
             "plate": "gc",
-            "rear-view": "Flowers"
+            "rear_view": "Flowers"
         },
         {
             "row": 0,
             "index": 16,
             "color": "black",
             "plate": "nj",
-            "rear-view": "Air Freshener"
+            "rear_view": "Air Freshener"
         },
         {
             "row": 0,
             "index": 17,
             "color": "silver",
             "plate": "nf",
-            "rear-view": "Air Freshener"
+            "rear_view": "Air Freshener"
         },
         {
             "row": 0,
             "index": 18,
             "color": "white",
             "plate": "hu",
-            "rear-view": "Curly Wristband"
+            "rear_view": "Curly Wristband"
         },
         {
             "row": 0,
             "index": 19,
             "color": "black",
             "plate": "na",
-            "rear-view": "Ghost"
+            "rear_view": "Ghost"
         },
         {
             "row": 1,
             "index": 1,
             "color": "black",
             "plate": "gc",
-            "rear-view": "Strawberries"
+            "rear_view": "Strawberries"
         },
         {
             "row": 1,
             "index": 2,
             "color": "white",
             "plate": "cg",
-            "rear-view": "Air Freshener"
+            "rear_view": "Air Freshener"
         },
         {
             "row": 1,
@@ -160,21 +160,21 @@
             "index": 7,
             "color": "blue",
             "plate": "vh",
-            "rear-view": "Tag"
+            "rear_view": "Tag"
         },
         {
             "row": 1,
             "index": 8,
             "color": "silver",
             "plate": "vg",
-            "rear-view": "Pumpkin"
+            "rear_view": "Pumpkin"
         },
         {
             "row": 1,
             "index": 10,
             "color": "blue",
             "plate": "ze",
-            "rear-view": "Planter in a rope basket",
+            "rear_view": "Planter in a rope basket",
             "stickers": [
                 "\"Plants Heal\"",
                 "\"Arch City Kids Theater Troupe\"",
@@ -186,14 +186,14 @@
             "index": 11,
             "color": "blue",
             "plate": "rj",
-            "rear-view": "Tassel"
+            "rear_view": "Tassel"
         },
         {
             "row": 1,
             "index": 17,
             "color": "white",
             "plate": "dg",
-            "rear-view": "Tassel",
+            "rear_view": "Tassel",
             "stickers": [
                 "No Face from Spirited Away",
                 "Mountains",
