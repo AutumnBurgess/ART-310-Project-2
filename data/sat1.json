@@ -1,0 +1,207 @@
+{
+    "cars": [
+        {
+            "row": 0,
+            "index": 1,
+            "color": "black",
+            "plate": "91"
+        },
+        {
+            "row": 0,
+            "index": 2,
+            "color": "red",
+            "plate": "xf"
+        },
+        {
+            "row": 0,
+            "index": 3,
+            "color": "white",
+            "plate": "al",
+            "rear-view": "Air Freshener",
+            "stickers": [
+                "Air Force logo"
+            ]
+        },
+        {
+            "row": 0,
+            "index": 4,
+            "color": "silver",
+            "plate": "bm",
+            "stickers": [
+                "MSU logo"
+            ]
+        },
+        {
+            "row": 0,
+            "index": 5,
+            "color": "black",
+            "plate": "j0"
+        },
+        {
+            "row": 0,
+            "index": 6,
+            "color": "blue",
+            "plate": "ge",
+            "rear-view": "Air Freshener"
+        },
+        {
+            "row": 0,
+            "index": 7,
+            "color": "white",
+            "plate": "ta"
+        },
+        {
+            "row": 0,
+            "index": 8,
+            "color": "blue",
+            "plate": "LB",
+            "rear-view": "Tassel",
+            "stickers": [
+                "MSU logo",
+                "Dog",
+                "Ruth Bader Ginsburg wearing a crown"
+            ]
+        },
+        {
+            "row": 0,
+            "index": 11,
+            "color": "black",
+            "plate": "rc",
+            "stickers": [
+                "\"Earth\" in a heart",
+                "MSU logo"
+            ]
+        },
+        {
+            "row": 0,
+            "index": 12,
+            "color": "blue",
+            "plate": "ne"
+        },
+        {
+            "row": 0,
+            "index": 14,
+            "color": "green",
+            "plate": "da"
+        },
+        {
+            "row": 0,
+            "index": 15,
+            "color": "silver",
+            "plate": "gc",
+            "rear-view": "Flowers"
+        },
+        {
+            "row": 0,
+            "index": 16,
+            "color": "black",
+            "plate": "nj",
+            "rear-view": "Air Freshener"
+        },
+        {
+            "row": 0,
+            "index": 17,
+            "color": "silver",
+            "plate": "nf",
+            "rear-view": "Air Freshener"
+        },
+        {
+            "row": 0,
+            "index": 18,
+            "color": "white",
+            "plate": "hu",
+            "rear-view": "Curly Wristband"
+        },
+        {
+            "row": 0,
+            "index": 19,
+            "color": "black",
+            "plate": "na",
+            "rear-view": "Ghost"
+        },
+        {
+            "row": 1,
+            "index": 1,
+            "color": "black",
+            "plate": "gc",
+            "rear-view": "Strawberries"
+        },
+        {
+            "row": 1,
+            "index": 2,
+            "color": "white",
+            "plate": "cg",
+            "rear-view": "Air Freshener"
+        },
+        {
+            "row": 1,
+            "index": 3,
+            "color": "green",
+            "plate": "tn"
+        },
+        {
+            "row": 1,
+            "index": 4,
+            "color": "white",
+            "plate": "td"
+        },
+        {
+            "row": 1,
+            "index": 6,
+            "color": "blue",
+            "plate": "zc",
+            "stickers": [
+                "Linux mascot",
+                "\"There's no place like 127.0.0.1\""
+            ]
+        },
+        {
+            "row": 1,
+            "index": 7,
+            "color": "blue",
+            "plate": "vh",
+            "rear-view": "Tag"
+        },
+        {
+            "row": 1,
+            "index": 8,
+            "color": "silver",
+            "plate": "vg",
+            "rear-view": "Pumpkin"
+        },
+        {
+            "row": 1,
+            "index": 10,
+            "color": "blue",
+            "plate": "ze",
+            "rear-view": "Planter in a rope basket",
+            "stickers": [
+                "\"Plants Heal\"",
+                "\"Arch City Kids Theater Troupe\"",
+                "\"Rescue Mom\" on a heart"
+            ]
+        },
+        {
+            "row": 1,
+            "index": 11,
+            "color": "blue",
+            "plate": "rj",
+            "rear-view": "Tassel"
+        },
+        {
+            "row": 1,
+            "index": 17,
+            "color": "white",
+            "plate": "dg",
+            "rear-view": "Tassel",
+            "stickers": [
+                "No Face from Spirited Away",
+                "Mountains",
+                "Air Force logo",
+                "Smokey the Bear",
+                "Catbus from My Neightbor Totoro",
+                "\"Kings Canyon National Park\" with van"
+            ]
+        }
+    ]
+}

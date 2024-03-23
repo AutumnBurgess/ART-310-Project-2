@@ -1,26 +1,39 @@
 let dataTable;
+let saturday1;
 const SPOT_WIDTH = 40;
 const SPOT_HEIGHT = 60;
-const spotRows = [{x:10, y:10}, {x:10, y:220}];
+const SPOT_SPACING = 10;
+const spotRows = [{ x: 10, y: 50 }, { x: 10, y: 300 }];
 let colors = [];
 
 function preload() {
-  dataTable = loadTable("example_data.csv", "csv", "header");
+  dataTable = loadTable("data/example_data.csv", "csv", "header");
+  saturday1 = loadJSON("data/sat1.json");
 }
 
 function setup() {
   createCanvas(1200, 600);
   textAlign(CENTER);
-
-  
+  rectMode(CENTER);
 }
 
 function draw() {
   background(220);
-  dataTable.rows.forEach(drawSpot);
+  saturday1.cars.forEach(drawCar);
 }
 
-function drawSpot(dataRow){
+function drawCarStationary(car) {
+
+}
+
+function drawCar(car) {
+  const position = getSpotPosition(car.row, car.index);
+  fill(car.color);
+  const border = 5;
+  rect(position.x + border, position.y + border, SPOT_WIDTH, SPOT_HEIGHT);
+}
+
+function drawSpot(dataRow) {
   const index = dataRow.getNum("INDEX");
   const row = dataRow.getNum("ROW");
   const color = dataRow.getString("COLOR");
@@ -32,15 +45,15 @@ function drawSpot(dataRow){
   const y = position.y;
 
   //car
-  if (has_car){
+  if (has_car) {
     fill(color);
     noStroke();
     const border = 5;
-    const height = four_door ? SPOT_HEIGHT : SPOT_HEIGHT * (5/6);
-    rect(x + border, y + border, SPOT_WIDTH - 2 * border, height - 2 * border);  
+    const height = four_door ? SPOT_HEIGHT : SPOT_HEIGHT * (5 / 6);
+    rect(x + border, y + border, SPOT_WIDTH - 2 * border, height - 2 * border);
   }
-  
-  if (!grassy){
+
+  if (!grassy) {
     //lines
     fill(0);
     stroke(0);
@@ -53,7 +66,7 @@ function drawSpot(dataRow){
 }
 
 function getSpotPosition(row, index) {
-  const x = spotRows[row].x + index * SPOT_WIDTH;
+  const x = spotRows[row].x + index * (SPOT_WIDTH + SPOT_SPACING);
   const y = spotRows[row].y;
   return createVector(x, y);
 }
