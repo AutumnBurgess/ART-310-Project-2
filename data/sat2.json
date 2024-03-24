@@ -9,15 +9,15 @@
         {
             "row": 0,
             "index": 2,
-            "color": "red",
-            "plate": "xf"
+            "color": "white",
+            "plate": "tj",
+            "rear_view": "Air Freshener"
         },
         {
             "row": 0,
             "index": 3,
             "color": "white",
             "plate": "al",
-            "rear_view": "Air Freshener",
             "stickers": [
                 "Air Force logo"
             ]
@@ -26,29 +26,35 @@
             "row": 0,
             "index": 4,
             "color": "silver",
-            "plate": "bm",
-            "stickers": [
-                "MSU logo"
-            ]
+            "plate": "rk"
         },
         {
             "row": 0,
             "index": 5,
-            "color": "black",
-            "plate": "j0"
+            "color": "blue",
+            "plate": "ve",
+            "rear_view": "Doll with a clock"
         },
         {
             "row": 0,
             "index": 6,
             "color": "blue",
-            "plate": "ge",
-            "rear_view": "Air Freshener"
+            "plate": "ve",
+            "rear_view": "Air Freshener",
+            "stickers": [
+                "\"St. Charles Automotive\"",
+                "[indecipherable]"
+            ]
         },
         {
             "row": 0,
             "index": 7,
-            "color": "white",
-            "plate": "ta"
+            "color": "silver",
+            "plate": "rk",
+            "rear_view": "Tassel",
+            "stickers": [
+                "\"Juice Plus+\""
+            ]
         },
         {
             "row": 0,
@@ -64,13 +70,16 @@
         },
         {
             "row": 0,
+            "index": 10,
+            "color": "tan",
+            "plate": "da"
+        },
+        {
+            "row": 0,
             "index": 11,
-            "color": "black",
-            "plate": "rc",
-            "stickers": [
-                "\"Earth\" in a heart",
-                "MSU logo"
-            ]
+            "color": "white",
+            "plate": "gc",
+            "rear_view": "Tassel"
         },
         {
             "row": 0,
@@ -80,23 +89,29 @@
         },
         {
             "row": 0,
+            "index": 13,
+            "color": "white",
+            "plate": "jh"
+        },
+        {
+            "row": 0,
             "index": 14,
-            "color": "green",
-            "plate": "da"
+            "color": "black",
+            "plate": "rj",
+            "rear_view": "Air Freshener"
         },
         {
             "row": 0,
             "index": 15,
-            "color": "silver",
+            "color": "black",
             "plate": "gc",
-            "rear_view": "Flowers"
+            "rear_view": "White flowers"
         },
         {
             "row": 0,
             "index": 16,
             "color": "black",
-            "plate": "nj",
-            "rear_view": "Air Freshener"
+            "plate": "q4"
         },
         {
             "row": 0,
@@ -123,12 +138,11 @@
             "row": 1,
             "index": 1,
             "color": "black",
-            "plate": "gc",
-            "rear_view": "Strawberries"
+            "plate": "gc"
         },
         {
             "row": 1,
-            "index": 3,
+            "index": 2,
             "color": "white",
             "plate": "cg",
             "rear_view": "Air Freshener",
@@ -139,14 +153,23 @@
         {
             "row": 1,
             "index": 3,
-            "color": "green",
-            "plate": "tn"
+            "color": "black",
+            "plate": "tn",
+            "stickers": [
+                "Springfield flag"
+            ]
         },
         {
             "row": 1,
             "index": 4,
             "color": "white",
             "plate": "td"
+        },
+        {
+            "row": 1,
+            "index": 5,
+            "color": "blue",
+            "plate": "nh"
         },
         {
             "row": 1,
@@ -170,41 +193,34 @@
             "index": 8,
             "color": "silver",
             "plate": "vg",
-            "rear_view": "Pumpkin"
+            "rear_view": "Duck-shaped pop fidget toy"
+        },
+        {
+            "row": 1,
+            "index": 9,
+            "color": "white",
+            "plate": "bb",
+            "rear_view": "Air Freshener"
         },
         {
             "row": 1,
             "index": 10,
-            "color": "blue",
-            "plate": "ze",
-            "rear_view": "Planter in a rope basket",
-            "stickers": [
-                "\"Plants Heal\"",
-                "\"Arch City Kids Theater Troupe\"",
-                "\"Rescue Mom\" on a heart"
-            ]
+            "color": "silver",
+            "plate": "db",
+            "rear_view": "Worms on strings"
         },
         {
             "row": 1,
             "index": 11,
-            "color": "blue",
-            "plate": "rj",
-            "rear_view": "Tassel"
+            "color": "black",
+            "plate": "gc",
+            "rear_view": "Dolphin"
         },
         {
             "row": 1,
-            "index": 17,
-            "color": "white",
-            "plate": "dg",
-            "rear_view": "Tassel",
-            "stickers": [
-                "No Face from Spirited Away",
-                "Mountains",
-                "Air Force logo",
-                "Smokey the Bear",
-                "Catbus from My Neightbor Totoro",
-                "\"Kings Canyon National Park\" with van"
-            ]
+            "index": 12,
+            "color": "black",
+            "plate": "ve"
         }
     ]
 }

@@ -3,7 +3,7 @@ let saturday1;
 const CAR_WIDTH = 75;
 const CAR_HEIGHT = 50;
 const SPOT_SPACING = 10;
-const spotRows = [{ x: -20, y: 50 }, { x: -20, y: 300 }];
+const spotRows = [{ x: -20, y: 50, count: 19 }, { x: -20, y: 300, count: 20 }];
 let colors = [];
 
 function preload() {
@@ -20,6 +20,20 @@ function setup() {
 function draw() {
   background(220);
   saturday1.cars.forEach(drawCarStationary);
+  drawLines();
+}
+
+function drawLines() {
+  push();
+  stroke("yellow");
+  strokeWeight(5);
+  for (let row of spotRows) {
+    for (let i = 0; i <= row.count; i++) {
+      let x = row.x + CAR_HEIGHT / 2 + i * (CAR_HEIGHT + SPOT_SPACING) + SPOT_SPACING / 2;
+      line(x, row.y - CAR_WIDTH / 2 - 5, x, row.y + CAR_WIDTH / 2 + 5);
+    }
+  }
+  pop();
 }
 
 function drawCarStationary(car) {
