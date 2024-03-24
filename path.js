@@ -94,7 +94,7 @@ function createArc(x, y, radius, startAngle, theta, addAngle = 0) {
         const positionAngle = map(u, 0, 1, startAngle, endAngle);
         const translateX = cos(positionAngle) * radius + x;
         const translateY = sin(positionAngle) * radius + y;
-        const angle = positionAngle + sign(theta) * (TWO_PI / 4);
+        const angle = positionAngle + (theta > 0 ? HALF_PI : -HALF_PI);
         translate(translateX, translateY);
         rotate(angle + addAngle);
     }

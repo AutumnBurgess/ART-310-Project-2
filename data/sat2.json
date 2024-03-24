@@ -1,19 +1,22 @@
 {
     "cars": [
         {
+            "id": 0,
             "row": 0,
             "index": 1,
             "color": "black",
             "plate": "91"
         },
         {
+            "id": 26,
             "row": 0,
             "index": 2,
             "color": "white",
             "plate": "tj",
-            "rear_view": "Air Freshener"
+            "rear_view": "Air freshener"
         },
         {
+            "id": 2,
             "row": 0,
             "index": 3,
             "color": "white",
@@ -23,12 +26,14 @@
             ]
         },
         {
+            "id": 27,
             "row": 0,
             "index": 4,
             "color": "silver",
             "plate": "rk"
         },
         {
+            "id": 28,
             "row": 0,
             "index": 5,
             "color": "blue",
@@ -36,17 +41,19 @@
             "rear_view": "Doll with a clock"
         },
         {
+            "id": 29,
             "row": 0,
             "index": 6,
             "color": "blue",
             "plate": "ve",
-            "rear_view": "Air Freshener",
+            "rear_view": "Air freshener",
             "stickers": [
                 "\"St. Charles Automotive\"",
                 "[indecipherable]"
             ]
         },
         {
+            "id": 30,
             "row": 0,
             "index": 7,
             "color": "silver",
@@ -57,6 +64,7 @@
             ]
         },
         {
+            "id": 7,
             "row": 0,
             "index": 8,
             "color": "blue",
@@ -69,12 +77,14 @@
             ]
         },
         {
+            "id": 31,
             "row": 0,
             "index": 10,
             "color": "tan",
             "plate": "da"
         },
         {
+            "id": 32,
             "row": 0,
             "index": 11,
             "color": "white",
@@ -82,45 +92,52 @@
             "rear_view": "Tassel"
         },
         {
+            "id": 9,
             "row": 0,
             "index": 12,
             "color": "blue",
             "plate": "ne"
         },
         {
+            "id": 33,
             "row": 0,
             "index": 13,
             "color": "white",
             "plate": "jh"
         },
         {
+            "id": 34,
             "row": 0,
             "index": 14,
             "color": "black",
             "plate": "rj",
-            "rear_view": "Air Freshener"
+            "rear_view": "Air freshener"
         },
         {
+            "id": 11,
             "row": 0,
             "index": 15,
-            "color": "black",
+            "color": "silver",
             "plate": "gc",
             "rear_view": "White flowers"
         },
         {
+            "id": 35,
             "row": 0,
             "index": 16,
             "color": "black",
             "plate": "q4"
         },
         {
+            "id": 13,
             "row": 0,
             "index": 17,
             "color": "silver",
             "plate": "nf",
-            "rear_view": "Air Freshener"
+            "rear_view": "Air freshener"
         },
         {
+            "id": 14,
             "row": 0,
             "index": 18,
             "color": "white",
@@ -128,6 +145,7 @@
             "rear_view": "Curly Wristband"
         },
         {
+            "id": 15,
             "row": 0,
             "index": 19,
             "color": "black",
@@ -135,22 +153,26 @@
             "rear_view": "Ghost"
         },
         {
+            "id": 16,
             "row": 1,
             "index": 1,
             "color": "black",
-            "plate": "gc"
+            "plate": "gc",
+            "rear_view": "Strawberries"
         },
         {
+            "id": 17,
             "row": 1,
             "index": 2,
             "color": "white",
             "plate": "cg",
-            "rear_view": "Air Freshener",
+            "rear_view": "Air freshener",
             "stickers": [
                 "\"Weber 110+ years\""
             ]
         },
         {
+            "id": 36,
             "row": 1,
             "index": 3,
             "color": "black",
@@ -160,18 +182,21 @@
             ]
         },
         {
+            "id": 19,
             "row": 1,
             "index": 4,
             "color": "white",
             "plate": "td"
         },
         {
+            "id": 37,
             "row": 1,
             "index": 5,
             "color": "blue",
             "plate": "nh"
         },
         {
+            "id": 20,
             "row": 1,
             "index": 6,
             "color": "blue",
@@ -182,6 +207,7 @@
             ]
         },
         {
+            "id": 21,
             "row": 1,
             "index": 7,
             "color": "blue",
@@ -189,6 +215,7 @@
             "rear_view": "Tag"
         },
         {
+            "id": 38,
             "row": 1,
             "index": 8,
             "color": "silver",
@@ -196,13 +223,15 @@
             "rear_view": "Duck-shaped pop fidget toy"
         },
         {
+            "id": 39,
             "row": 1,
             "index": 9,
             "color": "white",
             "plate": "bb",
-            "rear_view": "Air Freshener"
+            "rear_view": "Air freshener"
         },
         {
+            "id": 40,
             "row": 1,
             "index": 10,
             "color": "silver",
@@ -210,6 +239,7 @@
             "rear_view": "Worms on strings"
         },
         {
+            "id": 41,
             "row": 1,
             "index": 11,
             "color": "black",
@@ -217,6 +247,7 @@
             "rear_view": "Dolphin"
         },
         {
+            "id": 42,
             "row": 1,
             "index": 12,
             "color": "black",

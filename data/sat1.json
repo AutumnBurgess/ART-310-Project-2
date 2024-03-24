@@ -1,28 +1,32 @@
 {
     "cars": [
         {
+            "id": 0,
             "row": 0,
             "index": 1,
             "color": "black",
             "plate": "91"
         },
         {
+            "id": 1,
             "row": 0,
             "index": 2,
             "color": "red",
             "plate": "xf"
         },
         {
+            "id": 2,
             "row": 0,
             "index": 3,
             "color": "white",
             "plate": "al",
-            "rear_view": "Air Freshener",
+            "rear_view": "Air freshener",
             "stickers": [
                 "Air Force logo"
             ]
         },
         {
+            "id": 3,
             "row": 0,
             "index": 4,
             "color": "silver",
@@ -32,25 +36,29 @@
             ]
         },
         {
+            "id": 4,
             "row": 0,
             "index": 5,
             "color": "black",
             "plate": "j0"
         },
         {
+            "id": 5,
             "row": 0,
             "index": 6,
             "color": "blue",
             "plate": "ge",
-            "rear_view": "Air Freshener"
+            "rear_view": "Air freshener"
         },
         {
+            "id": 6,
             "row": 0,
             "index": 7,
             "color": "white",
             "plate": "ta"
         },
         {
+            "id": 7,
             "row": 0,
             "index": 8,
             "color": "blue",
@@ -63,6 +71,7 @@
             ]
         },
         {
+            "id": 8,
             "row": 0,
             "index": 11,
             "color": "black",
@@ -73,39 +82,45 @@
             ]
         },
         {
+            "id": 9,
             "row": 0,
             "index": 12,
             "color": "blue",
             "plate": "ne"
         },
         {
+            "id": 10,
             "row": 0,
             "index": 14,
             "color": "green",
             "plate": "da"
         },
         {
+            "id": 11,
             "row": 0,
             "index": 15,
             "color": "silver",
             "plate": "gc",
-            "rear_view": "Flowers"
+            "rear_view": "White flowers"
         },
         {
+            "id": 12,
             "row": 0,
             "index": 16,
             "color": "black",
             "plate": "nj",
-            "rear_view": "Air Freshener"
+            "rear_view": "Air freshener"
         },
         {
+            "id": 13,
             "row": 0,
             "index": 17,
             "color": "silver",
             "plate": "nf",
-            "rear_view": "Air Freshener"
+            "rear_view": "Air freshener"
         },
         {
+            "id": 14,
             "row": 0,
             "index": 18,
             "color": "white",
@@ -113,6 +128,7 @@
             "rear_view": "Curly Wristband"
         },
         {
+            "id": 15,
             "row": 0,
             "index": 19,
             "color": "black",
@@ -120,6 +136,7 @@
             "rear_view": "Ghost"
         },
         {
+            "id": 16,
             "row": 1,
             "index": 1,
             "color": "black",
@@ -127,28 +144,32 @@
             "rear_view": "Strawberries"
         },
         {
+            "id": 17,
             "row": 1,
             "index": 3,
             "color": "white",
             "plate": "cg",
-            "rear_view": "Air Freshener",
+            "rear_view": "Air freshener",
             "stickers": [
                 "\"Weber 110+ years\""
             ]
         },
         {
+            "id": 18,
             "row": 1,
             "index": 3,
             "color": "green",
             "plate": "tn"
         },
         {
+            "id": 19,
             "row": 1,
             "index": 4,
             "color": "white",
             "plate": "td"
         },
         {
+            "id": 20,
             "row": 1,
             "index": 6,
             "color": "blue",
@@ -159,6 +180,7 @@
             ]
         },
         {
+            "id": 21,
             "row": 1,
             "index": 7,
             "color": "blue",
@@ -166,6 +188,7 @@
             "rear_view": "Tag"
         },
         {
+            "id": 22,
             "row": 1,
             "index": 8,
             "color": "silver",
@@ -173,6 +196,7 @@
             "rear_view": "Pumpkin"
         },
         {
+            "id": 23,
             "row": 1,
             "index": 10,
             "color": "blue",
@@ -185,6 +209,7 @@
             ]
         },
         {
+            "id": 24,
             "row": 1,
             "index": 11,
             "color": "blue",
@@ -192,6 +217,7 @@
             "rear_view": "Tassel"
         },
         {
+            "id": 25,
             "row": 1,
             "index": 17,
             "color": "white",
