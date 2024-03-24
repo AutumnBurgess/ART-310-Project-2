@@ -2,8 +2,8 @@ let dataTable;
 let saturday1;
 const CAR_WIDTH = 75;
 const CAR_HEIGHT = 50;
-const SPOT_SPACING = 10;
-const spotRows = [{ x: -20, y: 50, count: 19 }, { x: -20, y: 300, count: 20 }];
+const SPOT_SPACING = 15;
+const spotRows = [{ x: 0, y: 100, count: 19, ignore: [8, 9] }, { x: 0, y: 350, count: 20, ignore: [] }];
 let colors = [];
 
 function preload() {
@@ -12,15 +12,16 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(1200, 600);
+  createCanvas(1500, 500);
   textAlign(CENTER);
   rectMode(CENTER);
 }
 
 function draw() {
-  background(220);
+  background(150);
   saturday1.cars.forEach(drawCarStationary);
   drawLines();
+  drawGrassArea();
 }
 
 function drawLines() {
@@ -29,11 +30,26 @@ function drawLines() {
   strokeWeight(5);
   for (let row of spotRows) {
     for (let i = 0; i <= row.count; i++) {
-      let x = row.x + CAR_HEIGHT / 2 + i * (CAR_HEIGHT + SPOT_SPACING) + SPOT_SPACING / 2;
-      line(x, row.y - CAR_WIDTH / 2 - 5, x, row.y + CAR_WIDTH / 2 + 5);
+      if (row.ignore.indexOf(i) < 0) { //don't draw line if ignored
+        let x = row.x + CAR_HEIGHT / 2 + i * (CAR_HEIGHT + SPOT_SPACING) + SPOT_SPACING / 2;
+        line(x, row.y - CAR_WIDTH / 2 - 10, x, row.y + CAR_WIDTH / 2 + 10);
+      }
     }
   }
   pop();
+}
+
+function drawGrassArea() {
+  const position = getSpotPosition(0, 9);
+  fill("darkgreen");
+  noStroke();
+  rect(position.x, position.y, CAR_HEIGHT + SPOT_SPACING, CAR_WIDTH + 60, 10);
+  fill("orange");
+  stroke(0);
+  ellipse(position.x - CAR_HEIGHT / 3, position.y + CAR_WIDTH / 3, 15, 15);
+  ellipse(position.x - CAR_HEIGHT / 3, position.y + CAR_WIDTH / 3, 10, 10);
+  fill("white");
+  ellipse(position.x - CAR_HEIGHT / 3, position.y + CAR_WIDTH / 3, 5, 5);
 }
 
 function drawCarStationary(car) {
@@ -43,14 +59,6 @@ function drawCarStationary(car) {
   rotate(car.row == 0 ? -HALF_PI : HALF_PI);
   drawCar(car);
   pop();
-}
-
-
-function drawCarTemp(car) {
-  const position = getSpotPosition(car.row, car.index);
-  fill(car.color);
-  const border = 5;
-  rect(position.x + border, position.y + border, CAR_WIDTH, CAR_HEIGHT);
 }
 
 function drawCar(car) {
@@ -74,38 +82,6 @@ function drawCar(car) {
     }
   }
   pop();
-}
-
-function drawSpot(dataRow) {
-  const index = dataRow.getNum("INDEX");
-  const row = dataRow.getNum("ROW");
-  const color = dataRow.getString("COLOR");
-  const has_car = color.length > 0;
-  const grassy = dataRow.getNum("GRASSY") != 0;
-  const four_door = dataRow.getNum("FOUR_DOOR") != 0;
-  const position = getSpotPosition(row, index);
-  const x = position.x;
-  const y = position.y;
-
-  //car
-  if (has_car) {
-    fill(color);
-    noStroke();
-    const border = 5;
-    const height = four_door ? CAR_HEIGHT : CAR_HEIGHT * (5 / 6);
-    rect(x + border, y + border, CAR_WIDTH - 2 * border, height - 2 * border);
-  }
-
-  if (!grassy) {
-    //lines
-    fill(0);
-    stroke(0);
-    line(x, y, x, y + CAR_HEIGHT);
-    line(x + CAR_WIDTH, y, x + CAR_WIDTH, y + CAR_HEIGHT);
-  } else {
-    fill("SEAGREEN");
-    rect(x, y - 5, CAR_WIDTH, CAR_HEIGHT + 20, 5)
-  }
 }
 
 function getSpotPosition(row, index) {
