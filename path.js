@@ -82,7 +82,7 @@ function createLine(x1, y1, x2, y2, addAngle = 0) {
     const length = dist(x1, y1, x2, y2);
     return new PathSegment(displayF, transformF, length);
 }
-//a section of a cirlce with a start angle and change in angle (clockwise is positive) constantly rotating with the arc
+//a section of a circle with a start angle and change in angle (clockwise is positive) constantly rotating with the arc
 function createArc(x, y, radius, startAngle, theta, addAngle = 0) {
     const endAngle = startAngle + theta;
     const drawStart = theta >= 0 ? startAngle : endAngle;
