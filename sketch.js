@@ -1,5 +1,5 @@
-let tempCarData;
-let saturday;
+let carData;
+let dayData;
 const CAR_HEIGHT = 75;
 const CAR_WIDTH = 50;
 const SPOT_SPACING = 15;
@@ -7,10 +7,8 @@ const parkingRows = [{ x: 0, y: 120, count: 19, ignore: [8, 9] }, { x: 0, y: 500
 let colors = [];
 
 function preload() {
-  saturday = loadJSON("data/sat.json");
-  sunday = loadJSON("data/sun.json");
-  monday = loadJSON("data/mon.json");
-  tempCarData = loadJSON("data/cars.json");
+  carData = loadJSON("data/cars.json")
+  dayData = loadJSON("data/days.json")
 }
 
 function setup() {
@@ -20,10 +18,18 @@ function setup() {
 
 function draw() {
   background(150);
-  saturday.cars.forEach(drawCarStationary);
+  let saturday = dayData.days[0];
+  drawDay(saturday);
+
   drawLines();
   drawGrassArea();
   checkHover();
+}
+
+function drawDay(day) {
+  const name = day.name;
+  const rows = day.rows;
+  saturday.cars.forEach(drawCarStationary);
 }
 
 function checkHover() {
