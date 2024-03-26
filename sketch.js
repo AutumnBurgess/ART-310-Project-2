@@ -1,8 +1,12 @@
 let carData;
 let dayData;
 let currentDay;
+let hoveredRearView = false;
+let hoveredStickers = false;
 let currentTransition = [];
 let transitionPoint = 0;
+let narrowFont;
+let wideFont;
 
 const IDLE = 0;
 const TRANSITION = 1;
@@ -18,110 +22,45 @@ let colors = [];
 function preload() {
   carData = loadJSON("data/cars.json");
   dayData = loadJSON("data/days.json");
+  narrowFont = loadFont("assets/GothicNarrow.TTF");
+  wideFont = loadFont("assets/GothicWide.TTF");
 }
 
 function setup() {
+  createCanvas(1300, 500);
+  rectMode(CENTER);
+  textAlign(CENTER);
+
+
   currentDay = dayData.days[0];
   select("#saturday").position(10, 10).style("color", "grey");;
   select("#sunday").position(80, 10);
   select("#monday").position(140, 10);
-  createCanvas(1300, 500);
-  rectMode(CENTER);
-
 }
 
+//////////////////////////////////////Drawing//////////////////////////////////////
 function draw() {
   background(150);
-  drawLines();
+  drawParkingLines();
   drawGrassArea();
+  textAlign(CENTER, CENTER);
+  textSize(35);
+  textFont(wideFont);
+  text("Behind Sunvilla: Lot 33", width / 2, 30);
   if (state == IDLE) {
     drawDay(currentDay);
     checkHover();
+    hoverHints();
   } else if (state == TRANSITION) {
-    displayTransition(currentTransition);
+    drawTransition(currentTransition);
   }
 }
 
-function changeDay(num) {
-  if (state == TRANSITION) return;
-  const newDay = dayData.days[num];
-  if (currentDay == newDay) return;
-  currentTransition = buildDayBetween(currentDay, newDay);
-  select("#" + currentDay.name).style("color", "black");
-  select("#" + newDay.name).style("color", "grey");
-  currentDay = newDay;
-  transitionPoint = 0;
-  state = TRANSITION;
+function drawDay(day) {
+  forAllCars(day, drawCarInSpot);
 }
 
-function buildExit(id, car, row, position) {
-  const location = getSpotLocation(row, position);
-  const path = createExitPath(location.x, location.y, DEFAULT_LANE + random(-30, 30), DEFAULT_RADIUS + random(-10, 10));
-  const duration = random(0.5, 0.75);
-  const start = random(0, 0.2);
-  return { car: car, path: path, start: start, duration: duration };
-}
-
-function buildEnter(id, car, row, position) {
-  const location = getSpotLocation(row, position);
-  const path = createEnterPath(location.x, location.y, DEFAULT_LANE + random(-30, 30), DEFAULT_RADIUS + random(-10, 10));
-  const duration = random(0.5, 0.75);
-  const start = random(0, 0.2);
-  return { car: car, path: path, start: start, duration: duration };
-}
-
-function buildDayExit(day) {
-  return forAllCars(day, buildExit);
-}
-
-function buildDayEnter(day) {
-  return forAllCars(day, buildEnter);
-}
-
-function buildDayBetween(startDay, endDay) {
-  function buildBetween(id, car, row, position) {
-    const endCar = searchDay(endDay, id);
-    if (!endCar.found) {
-      return undefined;
-    }
-    if (row == endCar.row && position == endCar.position) {
-      const location = getSpotLocation(row, position);
-      const path = createStationaryPath(location.x, location.y, row == 0 ? -HALF_PI : HALF_PI);
-      return { car: car, path: path, start: 0, duration: 1 };
-    }
-    const startLocation = getSpotLocation(row, position);
-    const endLocation = getSpotLocation(endCar.row, endCar.position);
-    const path = createBetweenPath(startLocation.x, startLocation.y, endLocation.x, endLocation.y, DEFAULT_LANE + random(-30, 30), DEFAULT_RADIUS + random(-10, 10));
-    const duration = random(0.5, 0.75);
-    const start = random(0, 0.2);
-    return { car: car, path: path, start: start, duration: duration };
-  }
-  let out = forAllCars(startDay, buildBetween);
-  out = out.filter(e => e); //filter out undefined
-  let exits = forAllCars(startDay, buildExit);
-  let enters = forAllCars(endDay, buildEnter);
-  //filter out cars already in start day
-  exits = exits.filter(e => !(out.find(o => o.car == e.car)));
-  enters = enters.filter(e => !(out.find(o => o.car == e.car)));
-  out = out.concat(enters).concat(exits);
-  return out;
-}
-
-function searchDay(day, searchId) {
-  const rows = day.rows;
-  for (let rowIndex = 0; rowIndex < rows.length; rowIndex++) {
-    const row = rows[rowIndex];
-    for (let position = 0; position < row.length; position++) {
-      const id = row[position];
-      if (id == searchId) {
-        return { found: true, row: rowIndex, position: position };
-      }
-    }
-  }
-  return { found: false };
-}
-
-function displayTransition(transitions) {
+function drawTransition(transitions) {
   transitionPoint += 0.003;
   if (transitionPoint < 1) {
     for (let transition of transitions) {
@@ -139,28 +78,7 @@ function displayTransition(transitions) {
   }
 }
 
-function forAllCars(day, func) {
-  let out = [];
-  const rows = day.rows;
-  for (let rowIndex = 0; rowIndex < rows.length; rowIndex++) {
-    const row = rows[rowIndex];
-    for (let position = 0; position < row.length; position++) {
-      const id = row[position];
-      if (id >= 0) {
-        const car = carData.cars[id];
-        const returnValue = func(id, car, rowIndex, position);
-        out.push(returnValue);
-      }
-    }
-  }
-  return out;
-}
-
-function drawDay(day) {
-  forAllCars(day, drawCarStationary);
-}
-
-function drawCarStationary(id, car, row, position) {
+function drawCarInSpot(id, car, row, position) {
   const location = getSpotLocation(row, position);
   push();
   translate(location.x, location.y);
@@ -171,15 +89,29 @@ function drawCarStationary(id, car, row, position) {
 
 function drawCar(car) {
   push();
-  fill(car.color);
+  stroke("yellow");
+  strokeWeight(4);
+  line(CAR_HEIGHT / 2, -15, CAR_HEIGHT / 2, -8);
+  line(CAR_HEIGHT / 2, 15, CAR_HEIGHT / 2, 8);
+
+  //tires
+  strokeWeight(1);
   noStroke();
-  rect(0, 0, CAR_HEIGHT, CAR_WIDTH, 5);
+  fill(0);
+  rect(CAR_HEIGHT / 4 - 4, CAR_WIDTH / 2 - 2, 15, 5);
+  rect(CAR_HEIGHT / 4 - 4, 2 - CAR_WIDTH / 2, 15, 5);
+  rect(-CAR_HEIGHT / 4 - 4, CAR_WIDTH / 2 - 2, 15, 5);
+  rect(-CAR_HEIGHT / 4 - 4, 2 - CAR_WIDTH / 2, 15, 5);
+  //body
+  fill(car.color);
+  rect(0, 0, CAR_HEIGHT, CAR_WIDTH - 8, 5);
+  //windshield
   fill(255);
   stroke(0);
-  ellipse(CAR_HEIGHT / 2, -10, 10, 10);
-  ellipse(CAR_HEIGHT / 2, 10, 10, 10);
+  quad(30, 12, 30, -12, 15, -14, 15, 14);
+
   if (car.rear_view) {
-    ellipse(CAR_HEIGHT / 2 - 10, 0, 5, 5);
+    ellipse(CAR_HEIGHT / 2 - 13, 0, 5, 5);
   }
   if (car.stickers) {
     if (car.stickers.length == 1) {
@@ -188,15 +120,51 @@ function drawCar(car) {
       for (let i = 0; i < car.stickers.length; i++) {
         const sticker = car.stickers[i];
         const sX = (5 - CAR_HEIGHT / 2) + sticker.length / 5;
-        const sY = map(i, 0, car.stickers.length - 1, 7 - CAR_WIDTH / 2, CAR_WIDTH / 2 - 7);
-        rect(sX, sY, 5, 5);
+        const sY = map(i, 0, car.stickers.length - 1, 8 - CAR_WIDTH / 2, CAR_WIDTH / 2 - 8);
+        rect(sX, sY, 4, 4);
       }
     }
   }
   pop();
 }
 
+function hoverHints() {
+  push();
+  if (!hoveredRearView) {
+    //rearView 375,95
+    stroke("red");
+    strokeWeight(3);
+    let offset = sin(frameCount / 15) * 8 - 10;
+    let bX = 375 + offset;
+    let bY = 95 + offset;
+    line(bX, bY, bX - 15, bY);
+    line(bX, bY, bX, bY - 15);
+    line(bX, bY, bX - 40, bY - 40);
+    if (dist(mouseX, mouseY, bX - offset, bY - offset) < 12) {
+      hoveredRearView = true;
+    }
+  }
+  if (!hoveredStickers) {
+    //sticker 375,350
+    stroke("red");
+    strokeWeight(3);
+    let offset = sin(frameCount / 15) * 8 - 10;
+    let bX = 375 + offset;
+    let bY = 355 - offset;
+    line(bX, bY, bX - 15, bY);
+    line(bX, bY, bX, bY + 15);
+    line(bX, bY, bX - 40, bY + 40);
+    if (dist(mouseX, mouseY, bX - offset, bY + offset) < 12) {
+      hoveredStickers = true;
+    }
+  }
+  pop();
+}
+
 function checkHover() {
+  fill(255);
+  textSize(20);
+  textFont(narrowFont);
   for (let row = 0; row < parkingRows.length; row++) {
     for (let i = 0; i < parkingRows[row].count; i++) {
       const carPosition = getSpotLocation(row, i);
@@ -215,21 +183,29 @@ function checkHover() {
 
 function carText(carPosition, hoverCar, row) {
   const onFront = (carPosition.y - mouseY > 0) == (row == 0);
-  //text(onFront, carPosition.x, carPosition.y);
+  let textX = carPosition.x;
+  let textY = carPosition.y;
+  if (row == 0) {
+    textAlign(CENTER, TOP);
+    textY += CAR_HEIGHT / 2 + 15;
+  } else {
+    textAlign(CENTER, BOTTOM);
+    textY -= CAR_HEIGHT / 2 + 15;
+  }
   if (onFront) {
     const rearView = hoverCar.rear_view;
     if (rearView) {
-      text(rearView, carPosition.x, carPosition.y);
+      text(rearView, textX, textY);
     }
   } else {
     const stickers = hoverCar.stickers;
     if (stickers) {
-      text(stickers.join("\n"), carPosition.x, carPosition.y);
+      text(stickers.join("\n"), textX, textY);
     }
   }
 }
 
-function drawLines() {
+function drawParkingLines() {
   push();
   stroke("yellow");
   strokeWeight(5);
@@ -245,6 +221,7 @@ function drawLines() {
 }
 
 function drawGrassArea() {
+  push();
   const position = getSpotLocation(0, 8);
   fill("darkgreen");
   noStroke();
@@ -252,18 +229,113 @@ function drawGrassArea() {
   rect(position.x, position.y - CAR_HEIGHT, CAR_WIDTH + SPOT_SPACING, CAR_HEIGHT * 3 + 1);
   rectMode(CORNER)
   rect(0, 0, width, parkingRows[0].y - CAR_HEIGHT / 2 - 20);
+  push();
+  fill("lightgrey");
+  rect(0, 450, width, height);
+  pop();
   rectMode(CENTER);
   arc(position.x, position.y + CAR_HEIGHT / 2, CAR_WIDTH + SPOT_SPACING, CAR_WIDTH + SPOT_SPACING, 0, PI)
   //traffic cone
-  fill("orange");
-  stroke(0);
-  strokeWeight(1);
-  const coneX = position.x - CAR_WIDTH / 4;
-  const coneY = position.y + CAR_HEIGHT / 3
-  ellipse(coneX, coneY, 15, 15);
-  ellipse(coneX, coneY, 10, 10);
-  fill("white");
-  ellipse(coneX, coneY, 5, 5);
+  // fill("orange");
+  // stroke(0);
+  // strokeWeight(1);
+  // const coneX = position.x - CAR_WIDTH / 4;
+  // const coneY = position.y + CAR_HEIGHT / 3
+  // ellipse(coneX, coneY, 15, 15);
+  // ellipse(coneX, coneY, 10, 10);
+  // fill("white");
+  // ellipse(coneX, coneY, 5, 5);
+  pop();
+}
+
+/////////////////////////////////////////Transitions/////////////////////////////////////
+function changeDay(num) {
+  if (state == TRANSITION) return;
+  const newDay = dayData.days[num];
+  if (currentDay == newDay) return;
+  currentTransition = buildDayBetween(currentDay, newDay);
+  select("#" + currentDay.name).style("color", "black");
+  select("#" + newDay.name).style("color", "grey");
+  currentDay = newDay;
+  transitionPoint = 0;
+  state = TRANSITION;
+}
+
+function buildDayBetween(startDay, endDay) {
+  function buildExit(id, car, row, position) {
+    const location = getSpotLocation(row, position);
+    const path = createExitPath(location.x, location.y, DEFAULT_LANE + random(-30, 30), DEFAULT_RADIUS + random(-10, 10));
+    const duration = random(0.5, 0.75);
+    const start = random(0, 0.2);
+    return { car: car, path: path, start: start, duration: duration };
+  }
+
+  function buildEnter(id, car, row, position) {
+    const location = getSpotLocation(row, position);
+    const path = createEnterPath(location.x, location.y, DEFAULT_LANE + random(-30, 30), DEFAULT_RADIUS + random(-10, 10));
+    const duration = random(0.5, 0.75);
+    const start = random(0, 0.2);
+    return { car: car, path: path, start: start, duration: duration };
+  }
+  function buildBetween(id, car, row, position) {
+    const endCar = searchDay(endDay, id);
+    if (!endCar.found) {
+      return undefined;
+    }
+    if (row == endCar.row && position == endCar.position) {
+      const location = getSpotLocation(row, position);
+      const path = createStationaryPath(location.x, location.y, row == 0 ? -HALF_PI : HALF_PI);
+      return { car: car, path: path, start: 0, duration: 1 };
+    }
+    const startLocation = getSpotLocation(row, position);
+    const endLocation = getSpotLocation(endCar.row, endCar.position);
+    const path = createBetweenPath(startLocation.x, startLocation.y, endLocation.x, endLocation.y, DEFAULT_LANE + random(-30, 30), DEFAULT_RADIUS + random(-10, 10));
+    const duration = random(0.5, 0.75);
+    const start = random(0, 0.2);
+    return { car: car, path: path, start: start, duration: duration };
+  }
+  //get transitions of cars in both days, the first day, the last day
+  let betweens = forAllCars(startDay, buildBetween).filter(e => e); //filter out undefined
+  let exits = forAllCars(startDay, buildExit);
+  let enters = forAllCars(endDay, buildEnter);
+  //filter out cars in both
+  exits = exits.filter(e => !(betweens.find(o => o.car == e.car)));
+  enters = enters.filter(e => !(betweens.find(o => o.car == e.car)));
+  //return all of them together
+  return betweens.concat(enters).concat(exits);
+}
+
+//return row and position of id in a given day
+function searchDay(day, searchId) {
+  const rows = day.rows;
+  for (let rowIndex = 0; rowIndex < rows.length; rowIndex++) {
+    const row = rows[rowIndex];
+    for (let position = 0; position < row.length; position++) {
+      const id = row[position];
+      if (id == searchId) {
+        return { found: true, row: rowIndex, position: position };
+      }
+    }
+  }
+  return { found: false };
+}
+
+//iterate func on all cars in a given day
+function forAllCars(day, func) {
+  let out = [];
+  const rows = day.rows;
+  for (let rowIndex = 0; rowIndex < rows.length; rowIndex++) {
+    const row = rows[rowIndex];
+    for (let position = 0; position < row.length; position++) {
+      const id = row[position];
+      if (id >= 0) {
+        const car = carData.cars[id];
+        const returnValue = func(id, car, rowIndex, position);
+        out.push(returnValue);
+      }
+    }
+  }
+  return out;
 }
 
 function getSpotLocation(row, index) {
