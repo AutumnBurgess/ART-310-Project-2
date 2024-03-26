@@ -22,7 +22,7 @@ function preload() {
 
 function setup() {
   currentDay = dayData.days[0];
-  select("#saturday").position(10, 10);
+  select("#saturday").position(10, 10).style("color", "grey");;
   select("#sunday").position(80, 10);
   select("#monday").position(140, 10);
   createCanvas(1300, 500);
@@ -47,6 +47,8 @@ function changeDay(num) {
   const newDay = dayData.days[num];
   if (currentDay == newDay) return;
   currentTransition = buildDayBetween(currentDay, newDay);
+  select("#" + currentDay.name).style("color", "black");
+  select("#" + newDay.name).style("color", "grey");
   currentDay = newDay;
   transitionPoint = 0;
   state = TRANSITION;
@@ -54,18 +56,22 @@ function changeDay(num) {
 
 function buildExit(id, car, row, position) {
   const location = getSpotLocation(row, position);
-  const path = createExitPath(location.x, location.y, DEFAULT_LANE + random(-10, 10), DEFAULT_RADIUS);
-  return { car: car, path: path };
-}
-
-function buildDayExit(day) {
-  return forAllCars(day, buildExit);
+  const path = createExitPath(location.x, location.y, DEFAULT_LANE + random(-30, 30), DEFAULT_RADIUS + random(-10, 10));
+  const duration = random(0.5, 0.75);
+  const start = random(0, 0.2);
+  return { car: car, path: path, start: start, duration: duration };
 }
 
 function buildEnter(id, car, row, position) {
   const location = getSpotLocation(row, position);
-  const path = createEnterPath(location.x, location.y, DEFAULT_LANE + random(-10, 10), DEFAULT_RADIUS);
-  return { car: car, path: path };
+  const path = createEnterPath(location.x, location.y, DEFAULT_LANE + random(-30, 30), DEFAULT_RADIUS + random(-10, 10));
+  const duration = random(0.5, 0.75);
+  const start = random(0, 0.2);
+  return { car: car, path: path, start: start, duration: duration };
+}
+
+function buildDayExit(day) {
+  return forAllCars(day, buildExit);
 }
 
 function buildDayEnter(day) {
@@ -81,12 +87,14 @@ function buildDayBetween(startDay, endDay) {
     if (row == endCar.row && position == endCar.position) {
       const location = getSpotLocation(row, position);
       const path = createStationaryPath(location.x, location.y, row == 0 ? -HALF_PI : HALF_PI);
-      return { car: car, path: path };
+      return { car: car, path: path, start: 0, duration: 1 };
     }
     const startLocation = getSpotLocation(row, position);
     const endLocation = getSpotLocation(endCar.row, endCar.position);
-    const path = createBetweenPath(startLocation.x, startLocation.y, endLocation.x, endLocation.y, DEFAULT_LANE, DEFAULT_RADIUS);
-    return { car: car, path: path };
+    const path = createBetweenPath(startLocation.x, startLocation.y, endLocation.x, endLocation.y, DEFAULT_LANE + random(-30, 30), DEFAULT_RADIUS + random(-10, 10));
+    const duration = random(0.5, 0.75);
+    const start = random(0, 0.2);
+    return { car: car, path: path, start: start, duration: duration };
   }
   let out = forAllCars(startDay, buildBetween);
   out = out.filter(e => e); //filter out undefined
@@ -118,7 +126,9 @@ function displayTransition(transitions) {
   if (transitionPoint < 1) {
     for (let transition of transitions) {
       push();
-      transition.path.transform(transitionPoint);
+      //these aren't 0 and 1 because there are some glitches when the value is exactly 0 or 1 so this is a hack around that :)
+      const thisTransitionPoint = map(transitionPoint, transition.start, transition.start + transition.duration, 0.00001, 0.9999, true);
+      transition.path.transform(thisTransitionPoint);
       drawCar(transition.car);
       pop();
     }

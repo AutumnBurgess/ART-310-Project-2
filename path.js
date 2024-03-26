@@ -44,7 +44,7 @@ class Path {
             if (pathScale >= this.breakpoints[i] && pathScale <= this.breakpoints[i + 1]) {
                 //map range for segment between 0 and 1
                 const segmentScale = map(pathScale, this.breakpoints[i], this.breakpoints[i + 1], 0, 1, true);
-                const changes = this.segments[i].transform(segmentScale);
+                this.segments[i].transform(segmentScale);
             }
         }
     }
