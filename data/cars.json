@@ -11,14 +11,15 @@
         {
             "color": "white",
             "plate": "al",
-            "rear_view": [
+            "rear_view": "Air freshener",
+            "stickers": [
                 "Air Force logo"
             ]
         },
         {
             "color": "silver",
             "plate": "bm",
-            "rear_view": [
+            "stickers": [
                 "MSU logo"
             ]
         },
@@ -38,7 +39,8 @@
         {
             "color": "silver",
             "plate": "lb",
-            "rear_view": [
+            "rear_view": "Tassel",
+            "stickers": [
                 "MSU logo",
                 "\"My dog <3's MSU\"",
                 "Ruth Bader Ginsburg wearing a crown"
@@ -47,7 +49,7 @@
         {
             "color": "black",
             "plate": "rc",
-            "rear_view": [
+            "stickers": [
                 "\"Earth\" in a heart",
                 "MSU logo"
             ]
@@ -93,7 +95,8 @@
         {
             "color": "silver",
             "plate": "cg",
-            "rear_view": [
+            "rear_view": "Air freshener",
+            "stickers": [
                 "\"Class of 2024\"",
                 "\"MO State est. 1905\"",
                 "\"Getaway car\"",
@@ -111,7 +114,7 @@
         {
             "color": "blue",
             "plate": "zc",
-            "rear_view": [
+            "stickers": [
                 "Linux mascot",
                 "\"There's no place like 127.0.0.1\""
             ]
@@ -129,7 +132,8 @@
         {
             "color": "blue",
             "plate": "ze",
-            "rear_view": [
+            "rear_view": "Planter in a rope basket",
+            "stickers": [
                 "\"Plants Heal\"",
                 "\"Arch City Kids Theater Troupe\"",
                 "\"Rescue Mom\" on a heart"
@@ -143,7 +147,8 @@
         {
             "color": "white",
             "plate": "dg",
-            "rear_view": [
+            "rear_view": "Tassel",
+            "stickers": [
                 "No Face from Spirited Away",
                 "Mountains",
                 "Air Force logo",
@@ -159,7 +164,8 @@
         {
             "color": "blue",
             "plate": "lb",
-            "rear_view": [
+            "rear_view": "planter",
+            "stickers": [
                 "MSU logo",
                 "Bull"
             ]
@@ -180,7 +186,8 @@
         {
             "color": "black",
             "plate": "gf",
-            "rear_view": [
+            "rear_view": "Cross",
+            "stickers": [
                 "MSU logo",
                 "\"The Backstoppers Inc.\"",
                 "\"Dave Sinclair\""
@@ -225,7 +232,8 @@
         {
             "color": "blue",
             "plate": "ai",
-            "rear_view": [
+            "rear_view": "Skeleton",
+            "stickers": [
                 "MSU logo",
                 "Cubs logo",
                 "St. Louis Cardinals logo",
@@ -235,7 +243,8 @@
         {
             "color": "blue",
             "plate": "ve",
-            "rear_view": [
+            "rear_view": "Sloth",
+            "stickers": [
                 "MSU logo",
                 "Flowers",
                 "Cow \"We're all spots on the same cow\""
@@ -248,7 +257,8 @@
         {
             "color": "blue",
             "plate": "23",
-            "rear_view": [
+            "rear_view": "Cross",
+            "stickers": [
                 "MSU logo"
             ]
         },
@@ -263,7 +273,8 @@
         {
             "color": "white",
             "plate": "nj",
-            "rear_view": [
+            "rear_view": "Worm on a string",
+            "stickers": [
                 "\"Napleton Autoworks/Missouri\""
             ]
         },
@@ -279,7 +290,8 @@
         {
             "color": "silver",
             "plate": "rk",
-            "rear_view": [
+            "rear_view": "Popsicle stick weaving",
+            "stickers": [
                 "\"Juice Plus+\"",
                 "\"Tower Garden by Juice Plus+\"",
                 "\"St. Charles Automotive\""
@@ -288,7 +300,8 @@
         {
             "color": "black",
             "plate": "p3",
-            "rear_view": [
+            "rear_view": "Air freshener",
+            "stickers": [
                 "MSU logo"
             ]
         },

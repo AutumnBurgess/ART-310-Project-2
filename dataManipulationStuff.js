@@ -67,7 +67,7 @@ function simplify(car) {
     newCar.color = car.color;
     newCar.plate = car.plate;
     if (car.rear_view) newCar.rear_view = car.rear_view;
-    if (car.stickers) newCar.rear_view = car.stickers;
+    if (car.stickers) newCar.stickers = car.stickers;
     return newCar;
 }
 
