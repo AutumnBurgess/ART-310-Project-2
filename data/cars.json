@@ -1,0 +1,551 @@
+{
+    "cars": [
+        {
+            "color": "black",
+            "plate": "91"
+        },
+        {
+            "color": "red",
+            "plate": "xf"
+        },
+        {
+            "color": "white",
+            "plate": "al",
+            "rear_view": "Air freshener",
+            "stickers": [
+                "Air Force logo"
+            ]
+        },
+        {
+            "color": "silver",
+            "plate": "bm",
+            "stickers": [
+                "MSU logo"
+            ]
+        },
+        {
+            "color": "black",
+            "plate": "j0"
+        },
+        {
+            "color": "blue",
+            "plate": "ge",
+            "rear_view": "Air freshener"
+        },
+        {
+            "color": "white",
+            "plate": "ta"
+        },
+        {
+            "color": "blue",
+            "plate": "lb",
+            "rear_view": "Tassel",
+            "stickers": [
+                "MSU logo",
+                "\"My dog <3's MSU\"",
+                "Ruth Bader Ginsburg wearing a crown"
+            ]
+        },
+        {
+            "color": "black",
+            "plate": "rc",
+            "stickers": [
+                "\"Earth\" in a heart",
+                "MSU logo"
+            ]
+        },
+        {
+            "color": "blue",
+            "plate": "ne"
+        },
+        {
+            "color": "green",
+            "plate": "da"
+        },
+        {
+            "color": "brown",
+            "plate": "gc",
+            "rear_view": "White flowers"
+        },
+        {
+            "color": "black",
+            "plate": "nj",
+            "rear_view": "Air freshener"
+        },
+        {
+            "color": "silver",
+            "plate": "nf",
+            "rear_view": "Air freshener"
+        },
+        {
+            "color": "white",
+            "plate": "hu",
+            "rear_view": "Curly Wristband"
+        },
+        {
+            "color": "black",
+            "plate": "na",
+            "rear_view": "Ghost"
+        },
+        {
+            "color": "black",
+            "plate": "gg",
+            "rear_view": "Strawberries"
+        },
+        {
+            "color": "silver",
+            "plate": "cg",
+            "rear_view": "Air freshener",
+            "stickers": [
+                "\"Class of 2024\"",
+                "\"MO State est. 1905\"",
+                "\"Getaway car\"",
+                "\"Weber 110+ years\""
+            ]
+        },
+        {
+            "color": "green",
+            "plate": "tn"
+        },
+        {
+            "color": "white",
+            "plate": "td"
+        },
+        {
+            "color": "blue",
+            "plate": "zc",
+            "stickers": [
+                "Linux mascot",
+                "\"There's no place like 127.0.0.1\""
+            ]
+        },
+        {
+            "color": "blue",
+            "plate": "vh",
+            "rear_view": "Tag"
+        },
+        {
+            "color": "silver",
+            "plate": "vg",
+            "rear_view": "Pumpkin"
+        },
+        {
+            "color": "blue",
+            "plate": "ze",
+            "rear_view": "Planter in a rope basket",
+            "stickers": [
+                "\"Plants Heal\"",
+                "\"Arch City Kids Theater Troupe\"",
+                "\"Rescue Mom\" on a heart"
+            ]
+        },
+        {
+            "color": "blue",
+            "plate": "rj",
+            "rear_view": "Tassel"
+        },
+        {
+            "color": "white",
+            "plate": "dg",
+            "rear_view": "Tassel",
+            "stickers": [
+                "No Face from Spirited Away",
+                "Mountains",
+                "Air Force logo",
+                "Smokey the Bear",
+                "Catbus from My Neightbor Totoro",
+                "\"Kings Canyon National Park\" with van"
+            ]
+        },
+        {
+            "color": "blue",
+            "plate": "nh"
+        },
+        {
+            "color": "blue",
+            "plate": "lb",
+            "rear_view": "Pineapple",
+            "stickers": [
+                "MSU logo",
+                "[indecipherable]"
+            ]
+        },
+        {
+            "color": "red",
+            "plate": "ra",
+            "rear_view": "Glass vial"
+        },
+        {
+            "color": "green",
+            "plate": "cx"
+        },
+        {
+            "color": "blue",
+            "plate": "rk"
+        },
+        {
+            "color": "blue",
+            "plate": "ge",
+            "rear_view": "Air freshener",
+            "stickers": [
+                "[indecipherable]"
+            ]
+        },
+        {
+            "color": "black",
+            "plate": "gf",
+            "rear_view": "Cross",
+            "stickers": [
+                "MSU logo",
+                "\"The Backstoppers Inc.\"",
+                "\"Dave Sinclair\""
+            ]
+        },
+        {
+            "color": "silver",
+            "plate": "ee",
+            "rear_view": "Air freshener"
+        },
+        {
+            "color": "black",
+            "plate": "gc"
+        },
+        {
+            "color": "white",
+            "plate": "bb",
+            "rear_view": "Air freshener"
+        },
+        {
+            "color": "blue",
+            "plate": "ne"
+        },
+        {
+            "color": "white",
+            "plate": "jh"
+        },
+        {
+            "color": "black",
+            "plate": "vd",
+            "rear_view": "Silver bear"
+        },
+        {
+            "color": "brown",
+            "plate": "White flowers"
+        },
+        {
+            "color": "silver",
+            "plate": "na",
+            "rear_view": "Goose"
+        },
+        {
+            "color": "silver",
+            "plate": "nf",
+            "rear_view": "Air freshener"
+        },
+        {
+            "color": "white",
+            "plate": "hu",
+            "rear_view": "Curly Wristband"
+        },
+        {
+            "color": "black",
+            "plate": "q4"
+        },
+        {
+            "color": "black",
+            "plate": "gg",
+            "rear_view": "Strawberries"
+        },
+        {
+            "color": "blue",
+            "plate": "ai",
+            "rear_view": "Skeleton",
+            "stickers": [
+                "MSU logo",
+                "Cubs logo",
+                "St. Louis Cardinals logo",
+                "St. Louis Blues logo"
+            ]
+        },
+        {
+            "color": "blue",
+            "plate": "ve",
+            "rear_view": "Sloth",
+            "stickers": [
+                "MSU logo",
+                "Flowers",
+                "Cow \"We're all spots on the same cow\""
+            ]
+        },
+        {
+            "color": "white",
+            "plate": "td"
+        },
+        {
+            "color": "black",
+            "plate": "xa"
+        },
+        {
+            "color": "blue",
+            "plate": "zc",
+            "stickers": [
+                "Linux mascot",
+                "\"There's no place like 127.0.0.1\""
+            ]
+        },
+        {
+            "color": "blue",
+            "plate": "23",
+            "rear_view": "Cross",
+            "stickers": [
+                "MSU logo"
+            ]
+        },
+        {
+            "color": "silver",
+            "plate": "lg"
+        },
+        {
+            "color": "blue",
+            "plate": "bd"
+        },
+        {
+            "color": "white",
+            "plate": "nj",
+            "rear_view": "Worm on a string",
+            "stickers": [
+                "\"Napleton Autoworks/Missouri\""
+            ]
+        },
+        {
+            "color": "silver",
+            "plate": "cg",
+            "rear_view": "Air freshener",
+            "stickers": [
+                "\"Class of 2024\"",
+                "\"MO State est. 1905\"",
+                "\"Getaway car\"",
+                "\"Weber 110+ years\""
+            ]
+        },
+        {
+            "color": "black",
+            "plate": "ve"
+        },
+        {
+            "color": "white",
+            "plate": "dg",
+            "rear_view": "Tassel",
+            "stickers": [
+                "No Face from Spirited Away",
+                "Mountains",
+                "Air Force logo",
+                "Smokey the Bear",
+                "Catbus from My Neightbor Totoro",
+                "\"Kings Canyon National Park\" with van"
+            ]
+        },
+        {
+            "color": "red",
+            "plate": "xf",
+            "rear_view": "",
+            "stickers": []
+        },
+        {
+            "color": "blue",
+            "plate": "lb",
+            "rear_view": "planter",
+            "stickers": [
+                "MSU logo",
+                "Bull"
+            ]
+        },
+        {
+            "color": "red",
+            "plate": "ra",
+            "rear_view": "Glass vial",
+            "stickers": []
+        },
+        {
+            "color": "silver",
+            "plate": "lj",
+            "rear_view": "Feather",
+            "stickers": []
+        },
+        {
+            "color": "silver",
+            "plate": "rk",
+            "rear_view": "Popsicle stick weaving",
+            "stickers": [
+                "\"Juice Plus+\"",
+                "\"Tower Garden by Juice Plus+\"",
+                "\"St. Charles Automotive\""
+            ]
+        },
+        {
+            "color": "blue",
+            "plate": "ge",
+            "rear_view": "Air freshener",
+            "stickers": [
+                "[indecipherable]"
+            ]
+        },
+        {
+            "color": "black",
+            "plate": "p3",
+            "rear_view": "Air freshener",
+            "stickers": [
+                "MSU logo"
+            ]
+        },
+        {
+            "color": "blue",
+            "plate": "nh",
+            "rear_view": "",
+            "stickers": []
+        },
+        {
+            "color": "black",
+            "plate": "gc",
+            "rear_view": "",
+            "stickers": []
+        },
+        {
+            "color": "white",
+            "plate": "al",
+            "rear_view": "",
+            "stickers": []
+        },
+        {
+            "color": "blue",
+            "plate": "ne",
+            "rear_view": "",
+            "stickers": []
+        },
+        {
+            "color": "black",
+            "plate": "cu",
+            "rear_view": "",
+            "stickers": []
+        },
+        {
+            "color": "black",
+            "plate": "vd",
+            "rear_view": "",
+            "stickers": []
+        },
+        {
+            "color": "red",
+            "plate": "vd",
+            "rear_view": "",
+            "stickers": []
+        },
+        {
+            "color": "silver",
+            "plate": "na",
+            "rear_view": "",
+            "stickers": [
+                "Goose"
+            ]
+        },
+        {
+            "color": "white",
+            "plate": "gc",
+            "rear_view": "",
+            "stickers": []
+        },
+        {
+            "color": "white",
+            "plate": "tj",
+            "rear_view": "Air freshener",
+            "stickers": []
+        },
+        {
+            "color": "silver",
+            "plate": "q4",
+            "rear_view": "",
+            "stickers": []
+        },
+        {
+            "color": "black",
+            "plate": "gg",
+            "rear_view": "Strawberries",
+            "stickers": []
+        },
+        {
+            "color": "blue",
+            "plate": "ai",
+            "rear_view": "Skeleton",
+            "stickers": [
+                "MSU logo",
+                "Cubs logo",
+                "St. Louis Cardinals logo",
+                "St. Louis Blues logo"
+            ]
+        },
+        {
+            "color": "white",
+            "plate": "nf",
+            "rear_view": "Air freshener",
+            "stickers": []
+        },
+        {
+            "color": "orange",
+            "plate": "cw",
+            "rear_view": "Air freshener",
+            "stickers": []
+        },
+        {
+            "color": "black",
+            "plate": "xa",
+            "rear_view": "",
+            "stickers": []
+        },
+        {
+            "color": "blue",
+            "plate": "zc",
+            "stickers": [
+                "Linux mascot",
+                "\"There's no place like 127.0.0.1\""
+            ]
+        },
+        {
+            "color": "silver",
+            "plate": "8d",
+            "rear_view": "Air freshener",
+            "stickers": []
+        },
+        {
+            "color": "green",
+            "plate": "tn",
+            "rear_view": "",
+            "stickers": [
+                "Springfield flag"
+            ]
+        },
+        {
+            "color": "blue",
+            "plate": "bd",
+            "rear_view": "",
+            "stickers": []
+        },
+        {
+            "color": "white",
+            "plate": "lj",
+            "rear_view": "",
+            "stickers": []
+        },
+        {
+            "color": "silver",
+            "plate": "rg",
+            "rear_view": "",
+            "stickers": []
+        },
+        {
+            "color": "silver",
+            "plate": "te",
+            "rear_view": "Dream catcher",
+            "stickers": []
+        }
+    ]
+}

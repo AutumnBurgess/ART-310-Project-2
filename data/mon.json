@@ -5,9 +5,7 @@
             "row": 0,
             "index": 1,
             "color": "red",
-            "plate": "xf",
-            "rear_view": "",
-            "stickers": []
+            "plate": "xf"
         },
         {
             "id": 0,
@@ -27,8 +25,7 @@
             "index": 3,
             "color": "red",
             "plate": "ra",
-            "rear_view": "Glass vial",
-            "stickers": []
+            "rear_view": "Glass vial"
         },
         {
             "id": 0,
@@ -36,8 +33,7 @@
             "index": 4,
             "color": "silver",
             "plate": "lj",
-            "rear_view": "Feather",
-            "stickers": []
+            "rear_view": "Feather"
         },
         {
             "id": 0,
@@ -79,18 +75,14 @@
             "row": 0,
             "index": 8,
             "color": "blue",
-            "plate": "nh",
-            "rear_view": "",
-            "stickers": []
+            "plate": "nh"
         },
         {
             "id": 0,
             "row": 0,
             "index": 10,
             "color": "black",
-            "plate": "gc",
-            "rear_view": "",
-            "stickers": []
+            "plate": "gc"
         },
         {
             "id": 0,
@@ -98,26 +90,24 @@
             "index": 11,
             "color": "white",
             "plate": "al",
-            "rear_view": "",
-            "stickers": []
+            "rear_view": "Air freshener",
+            "stickers": [
+                "Air Force logo"
+            ]
         },
         {
             "id": 0,
             "row": 0,
             "index": 12,
             "color": "blue",
-            "plate": "ne",
-            "rear_view": "",
-            "stickers": []
+            "plate": "ne"
         },
         {
             "id": 0,
             "row": 0,
             "index": 13,
             "color": "black",
-            "plate": "cu",
-            "rear_view": "",
-            "stickers": []
+            "plate": "cu"
         },
         {
             "id": 0,
@@ -125,17 +115,14 @@
             "index": 14,
             "color": "black",
             "plate": "vd",
-            "rear_view": "",
-            "stickers": []
+            "rear_view": "Silver bear"
         },
         {
             "id": 0,
             "row": 0,
             "index": 15,
             "color": "red",
-            "plate": "vd",
-            "rear_view": "",
-            "stickers": []
+            "plate": "vd"
         },
         {
             "id": 0,
@@ -143,19 +130,15 @@
             "index": 16,
             "color": "silver",
             "plate": "na",
-            "rear_view": "",
-            "stickers": [
-                "Goose"
-            ]
+            "rear_view": "Goose",
+            "stickers": []
         },
         {
             "id": 0,
             "row": 0,
             "index": 17,
             "color": "white",
-            "plate": "gc",
-            "rear_view": "",
-            "stickers": []
+            "plate": "gc"
         },
         {
             "id": 0,
@@ -163,17 +146,14 @@
             "index": 18,
             "color": "white",
             "plate": "tj",
-            "rear_view": "Air freshener",
-            "stickers": []
+            "rear_view": "Air freshener"
         },
         {
             "id": 0,
             "row": 0,
             "index": 19,
             "color": "silver",
-            "plate": "q4",
-            "rear_view": "",
-            "stickers": []
+            "plate": "q4"
         },
         {
             "id": 0,
@@ -181,8 +161,7 @@
             "index": 1,
             "color": "black",
             "plate": "gg",
-            "rear_view": "Strawberries",
-            "stickers": []
+            "rear_view": "Strawberries"
         },
         {
             "id": 0,
@@ -204,8 +183,7 @@
             "index": 3,
             "color": "white",
             "plate": "nf",
-            "rear_view": "Air freshener",
-            "stickers": []
+            "rear_view": "Air freshener"
         },
         {
             "id": 0,
@@ -213,17 +191,14 @@
             "index": 4,
             "color": "orange",
             "plate": "cw",
-            "rear_view": "Air freshener",
-            "stickers": []
+            "rear_view": "Air freshener"
         },
         {
             "id": 0,
             "row": 1,
             "index": 5,
             "color": "black",
-            "plate": "xa",
-            "rear_view": "",
-            "stickers": []
+            "plate": "xa"
         },
         {
             "id": 0,
@@ -242,8 +217,7 @@
             "index": 7,
             "color": "silver",
             "plate": "8d",
-            "rear_view": "Air freshener",
-            "stickers": []
+            "rear_view": "Air freshener"
         },
         {
             "id": 0,
@@ -251,7 +225,6 @@
             "index": 8,
             "color": "green",
             "plate": "tn",
-            "rear_view": "",
             "stickers": [
                 "Springfield flag"
             ]
@@ -261,27 +234,21 @@
             "row": 1,
             "index": 9,
             "color": "blue",
-            "plate": "bd",
-            "rear_view": "",
-            "stickers": []
+            "plate": "bd"
         },
         {
             "id": 0,
             "row": 1,
             "index": 10,
             "color": "white",
-            "plate": "lj",
-            "rear_view": "",
-            "stickers": []
+            "plate": "lj"
         },
         {
             "id": 0,
             "row": 1,
             "index": 11,
             "color": "silver",
-            "plate": "rg",
-            "rear_view": "",
-            "stickers": []
+            "plate": "rg"
         },
         {
             "id": 0,
@@ -289,8 +256,7 @@
             "index": 12,
             "color": "silver",
             "plate": "te",
-            "rear_view": "Dream catcher",
-            "stickers": []
+            "rear_view": "Dream catcher"
         }
     ]
 }
