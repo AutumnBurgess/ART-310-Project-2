@@ -1,0 +1,296 @@
+{
+    "cars": [
+        {
+            "id": 0,
+            "row": 0,
+            "index": 1,
+            "color": "red",
+            "plate": "xf",
+            "rear_view": "",
+            "stickers": []
+        },
+        {
+            "id": 0,
+            "row": 0,
+            "index": 2,
+            "color": "blue",
+            "plate": "lb",
+            "rear_view": "planter",
+            "stickers": [
+                "MSU logo",
+                "Bull"
+            ]
+        },
+        {
+            "id": 0,
+            "row": 0,
+            "index": 3,
+            "color": "red",
+            "plate": "ra",
+            "rear_view": "Glass vial",
+            "stickers": []
+        },
+        {
+            "id": 0,
+            "row": 0,
+            "index": 4,
+            "color": "silver",
+            "plate": "lj",
+            "rear_view": "Feather",
+            "stickers": []
+        },
+        {
+            "id": 0,
+            "row": 0,
+            "index": 5,
+            "color": "silver",
+            "plate": "rk",
+            "rear_view": "Popsicle stick weaving",
+            "stickers": [
+                "\"Juice Plus+\"",
+                "\"Tower Garden by Juice Plus+\"",
+                "\"St. Charles Automotive\""
+            ]
+        },
+        {
+            "id": 0,
+            "row": 0,
+            "index": 6,
+            "color": "blue",
+            "plate": "ge",
+            "rear_view": "Air freshener",
+            "stickers": [
+                "[indecipherable]"
+            ]
+        },
+        {
+            "id": 0,
+            "row": 0,
+            "index": 7,
+            "color": "black",
+            "plate": "p3",
+            "rear_view": "Air freshener",
+            "stickers": [
+                "MSU logo"
+            ]
+        },
+        {
+            "id": 0,
+            "row": 0,
+            "index": 8,
+            "color": "blue",
+            "plate": "nh",
+            "rear_view": "",
+            "stickers": []
+        },
+        {
+            "id": 0,
+            "row": 0,
+            "index": 10,
+            "color": "black",
+            "plate": "gc",
+            "rear_view": "",
+            "stickers": []
+        },
+        {
+            "id": 0,
+            "row": 0,
+            "index": 11,
+            "color": "white",
+            "plate": "al",
+            "rear_view": "",
+            "stickers": []
+        },
+        {
+            "id": 0,
+            "row": 0,
+            "index": 12,
+            "color": "blue",
+            "plate": "ne",
+            "rear_view": "",
+            "stickers": []
+        },
+        {
+            "id": 0,
+            "row": 0,
+            "index": 13,
+            "color": "black",
+            "plate": "cu",
+            "rear_view": "",
+            "stickers": []
+        },
+        {
+            "id": 0,
+            "row": 0,
+            "index": 14,
+            "color": "black",
+            "plate": "vd",
+            "rear_view": "",
+            "stickers": []
+        },
+        {
+            "id": 0,
+            "row": 0,
+            "index": 15,
+            "color": "red",
+            "plate": "vd",
+            "rear_view": "",
+            "stickers": []
+        },
+        {
+            "id": 0,
+            "row": 0,
+            "index": 16,
+            "color": "silver",
+            "plate": "na",
+            "rear_view": "",
+            "stickers": [
+                "Goose"
+            ]
+        },
+        {
+            "id": 0,
+            "row": 0,
+            "index": 17,
+            "color": "white",
+            "plate": "gc",
+            "rear_view": "",
+            "stickers": []
+        },
+        {
+            "id": 0,
+            "row": 0,
+            "index": 18,
+            "color": "white",
+            "plate": "tj",
+            "rear_view": "Air freshener",
+            "stickers": []
+        },
+        {
+            "id": 0,
+            "row": 0,
+            "index": 19,
+            "color": "silver",
+            "plate": "q4",
+            "rear_view": "",
+            "stickers": []
+        },
+        {
+            "id": 0,
+            "row": 1,
+            "index": 1,
+            "color": "black",
+            "plate": "gg",
+            "rear_view": "Strawberries",
+            "stickers": []
+        },
+        {
+            "id": 0,
+            "row": 1,
+            "index": 2,
+            "color": "blue",
+            "plate": "ai",
+            "rear_view": "Skeleton",
+            "stickers": [
+                "MSU logo",
+                "Cubs logo",
+                "St. Louis Cardinals logo",
+                "St. Louis Blues logo"
+            ]
+        },
+        {
+            "id": 0,
+            "row": 1,
+            "index": 3,
+            "color": "white",
+            "plate": "nf",
+            "rear_view": "Air freshener",
+            "stickers": []
+        },
+        {
+            "id": 0,
+            "row": 1,
+            "index": 4,
+            "color": "orange",
+            "plate": "cw",
+            "rear_view": "Air freshener",
+            "stickers": []
+        },
+        {
+            "id": 0,
+            "row": 1,
+            "index": 5,
+            "color": "black",
+            "plate": "xa",
+            "rear_view": "",
+            "stickers": []
+        },
+        {
+            "id": 0,
+            "row": 1,
+            "index": 6,
+            "color": "blue",
+            "plate": "zc",
+            "stickers": [
+                "Linux mascot",
+                "\"There's no place like 127.0.0.1\""
+            ]
+        },
+        {
+            "id": 0,
+            "row": 1,
+            "index": 7,
+            "color": "silver",
+            "plate": "8d",
+            "rear_view": "Air freshener",
+            "stickers": []
+        },
+        {
+            "id": 0,
+            "row": 1,
+            "index": 8,
+            "color": "green",
+            "plate": "tn",
+            "rear_view": "",
+            "stickers": [
+                "Springfield flag"
+            ]
+        },
+        {
+            "id": 0,
+            "row": 1,
+            "index": 9,
+            "color": "blue",
+            "plate": "bd",
+            "rear_view": "",
+            "stickers": []
+        },
+        {
+            "id": 0,
+            "row": 1,
+            "index": 10,
+            "color": "white",
+            "plate": "lj",
+            "rear_view": "",
+            "stickers": []
+        },
+        {
+            "id": 0,
+            "row": 1,
+            "index": 11,
+            "color": "silver",
+            "plate": "rg",
+            "rear_view": "",
+            "stickers": []
+        },
+        {
+            "id": 0,
+            "row": 1,
+            "index": 12,
+            "color": "silver",
+            "plate": "te",
+            "rear_view": "Dream catcher",
+            "stickers": []
+        }
+    ]
+}

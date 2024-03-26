@@ -99,7 +99,7 @@
             "id": 11,
             "row": 0,
             "index": 15,
-            "color": "silver",
+            "color": "brown",
             "plate": "gc",
             "rear_view": "White flowers"
         },
@@ -140,17 +140,20 @@
             "row": 1,
             "index": 1,
             "color": "black",
-            "plate": "gc",
+            "plate": "gg",
             "rear_view": "Strawberries"
         },
         {
             "id": 17,
             "row": 1,
             "index": 3,
-            "color": "white",
+            "color": "silver",
             "plate": "cg",
             "rear_view": "Air freshener",
             "stickers": [
+                "\"Class of 2024\"",
+                "\"MO State est. 1905\"",
+                "\"Getaway car\"",
                 "\"Weber 110+ years\""
             ]
         },
