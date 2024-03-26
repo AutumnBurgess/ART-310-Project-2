@@ -1,41 +1,121 @@
 let carData;
 let dayData;
-let saturday;
-let sunday;
-let monday;
 let currentDay;
+let currentTransition = [];
+let transitionPoint = 0;
+
+const IDLE = 0;
+const TRANSITION = 1;
+let state = TRANSITION;
 const CAR_HEIGHT = 75;
 const CAR_WIDTH = 50;
 const SPOT_SPACING = 15;
 const parkingRows = [{ x: 50, y: 120, count: 19, ignore: [7, 8] }, { x: 50, y: 500 - 120, count: 17, ignore: [] }];
+const DEFAULT_LANE = 250;
+const DEFAULT_RADIUS = 90;
 let colors = [];
 
 function preload() {
   carData = loadJSON("data/cars.json");
   dayData = loadJSON("data/days.json");
-  saturday = loadJSON("oldData/saturday.json");
-  sunday = loadJSON("oldData/sunday.json");
-  monday = loadJSON("oldData/monday.json");
-
 }
 
 function setup() {
   createCanvas(1300, 500);
   rectMode(CENTER);
-  currentDay = dayData.days[0];
+  currentDay = dayData.days[1];
+  //currentTransition = buildDayEnter(currentDay);
+
+  currentTransition = buildDayBetween(dayData.days[0], dayData.days[1]);
 }
 
 function draw() {
   background(150);
-  drawDay(currentDay);
-
   drawLines();
   drawGrassArea();
-  checkHover();
+  if (state == IDLE) {
+    drawDay(currentDay);
+    checkHover();
+  } else if (state == TRANSITION) {
+    displayTransition(currentTransition);
+  }
 }
 
-function drawDay(day) {
-  const name = day.name;
+function buildDayExit(day) {
+  function buildExit(id, car, row, position) {
+    const location = getSpotLocation(row, position);
+    const path = createExitPath(location.x, location.y, DEFAULT_LANE + random(-10, 10), DEFAULT_RADIUS);
+    return { car: car, path: path };
+  }
+  transitionPoint = 0;
+  return forAllCars(day, buildExit);
+}
+
+function buildDayEnter(day) {
+  function buildEnter(car, row, position) {
+    const location = getSpotLocation(row, position);
+    const path = createEnterPath(location.x, location.y, DEFAULT_LANE + random(-10, 10), DEFAULT_RADIUS);
+    return { car: car, path: path };
+  }
+  transitionPoint = 0;
+  return forAllCars(day, buildEnter);
+}
+
+function buildDayBetween(startDay, endDay) {
+  function h(id, car, row, position) {
+    const endCar = searchDay(endDay, id);
+    if (!endCar.found) {
+      return undefined;
+    }
+    if (row == endCar.row && position == endCar.position) {
+      const location = getSpotLocation(row, position);
+      const path = createStationaryPath(location.x, location.y, row == 0 ? -HALF_PI : HALF_PI);
+      return { car: car, path: path };
+    }
+    const startLocation = getSpotLocation(row, position);
+    const endLocation = getSpotLocation(endCar.row, endCar.position);
+    const path = createBetweenPath(startLocation.x, startLocation.y, endLocation.x, endLocation.y, DEFAULT_LANE, DEFAULT_RADIUS);
+    return { car: car, path: path };
+  }
+  let out = forAllCars(startDay, h);
+  //TODO: find entering cars
+
+  out = out.filter(e => e); //filter out undefined
+  return out;
+}
+
+function searchDay(day, searchId) {
+  const rows = day.rows;
+  for (let rowIndex = 0; rowIndex < rows.length; rowIndex++) {
+    const row = rows[rowIndex];
+    for (let position = 0; position < row.length; position++) {
+      const id = row[position];
+      if (id == searchId) {
+        return { found: true, row: rowIndex, position: position };
+      }
+    }
+  }
+  return { found: false };
+}
+
+function displayTransition(transitions) {
+  transitionPoint += 0.003;
+  if (transitionPoint < 1) {
+    for (let transition of transitions) {
+      push();
+      transition.path.transform(transitionPoint);
+      drawCar(transition.car);
+      pop();
+    }
+  } else {
+    transitionPoint = 0;
+    drawDay(currentDay);
+    state = IDLE;
+  }
+}
+
+function forAllCars(day, func) {
+  let out = [];
   const rows = day.rows;
   for (let rowIndex = 0; rowIndex < rows.length; rowIndex++) {
     const row = rows[rowIndex];
@@ -43,14 +123,21 @@ function drawDay(day) {
       const id = row[position];
       if (id >= 0) {
         const car = carData.cars[id];
-        drawCarStationary(car, rowIndex, position)
+        const returnValue = func(id, car, rowIndex, position);
+        out.push(returnValue);
       }
     }
   }
+  return out;
 }
 
-function drawCarStationary(car, row, position) {
-  const location = getSpotPosition(row, position);
+function drawDay(day) {
+  const name = day.name;
+  forAllCars(day, drawCarStationary);
+}
+
+function drawCarStationary(id, car, row, position) {
+  const location = getSpotLocation(row, position);
   push();
   translate(location.x, location.y);
   rotate(row == 0 ? -HALF_PI : HALF_PI);
@@ -88,7 +175,7 @@ function drawCar(car) {
 function checkHover() {
   for (let row = 0; row < parkingRows.length; row++) {
     for (let i = 0; i < parkingRows[row].count; i++) {
-      const carPosition = getSpotPosition(row, i);
+      const carPosition = getSpotLocation(row, i);
       const inHorizontal = abs(carPosition.x - mouseX) < CAR_WIDTH / 2;
       const inVertical = abs(carPosition.y - mouseY) < CAR_HEIGHT / 2;
       if (inHorizontal && inVertical) {
@@ -134,11 +221,11 @@ function drawLines() {
 }
 
 function drawGrassArea() {
-  const position = getSpotPosition(0, 8);
+  const position = getSpotLocation(0, 8);
   fill("darkgreen");
   noStroke();
   strokeWeight(2);
-  rect(position.x, position.y - CAR_HEIGHT, CAR_WIDTH + SPOT_SPACING, CAR_HEIGHT * 3);
+  rect(position.x, position.y - CAR_HEIGHT, CAR_WIDTH + SPOT_SPACING, CAR_HEIGHT * 3 + 1);
   rectMode(CORNER)
   rect(0, 0, width, parkingRows[0].y - CAR_HEIGHT / 2 - 20);
   rectMode(CENTER);
@@ -147,13 +234,15 @@ function drawGrassArea() {
   fill("orange");
   stroke(0);
   strokeWeight(1);
-  ellipse(position.x - CAR_WIDTH / 3, position.y + CAR_HEIGHT / 3, 15, 15);
-  ellipse(position.x - CAR_WIDTH / 3, position.y + CAR_HEIGHT / 3, 10, 10);
+  const coneX = position.x - CAR_WIDTH / 4;
+  const coneY = position.y + CAR_HEIGHT / 3
+  ellipse(coneX, coneY, 15, 15);
+  ellipse(coneX, coneY, 10, 10);
   fill("white");
-  ellipse(position.x - CAR_WIDTH / 3, position.y + CAR_HEIGHT / 3, 5, 5);
+  ellipse(coneX, coneY, 5, 5);
 }
 
-function getSpotPosition(row, index) {
+function getSpotLocation(row, index) {
   const x = parkingRows[row].x + index * (CAR_WIDTH + SPOT_SPACING);
   const y = parkingRows[row].y;
   return createVector(x, y);

@@ -41,7 +41,7 @@ class Path {
         if (!this.built) this.build(); //calculate breakpoints if it hasn't already
         //use transform function of segment based on calculated breakpoints
         for (let i = 0; i < this.breakpoints.length - 1; i++) {
-            if (pathScale > this.breakpoints[i] && pathScale <= this.breakpoints[i + 1]) {
+            if (pathScale >= this.breakpoints[i] && pathScale <= this.breakpoints[i + 1]) {
                 //map range for segment between 0 and 1
                 const segmentScale = map(pathScale, this.breakpoints[i], this.breakpoints[i + 1], 0, 1, true);
                 const changes = this.segments[i].transform(segmentScale);
@@ -68,7 +68,7 @@ function createPoint(x, y, length = 0, angle = 0) {
     return new PathSegment(displayF, transformF, length);
 }
 //a line between two points, rotated based on the direction of the line, plus an optional extra rotation
-function createLine(x1, y1, x2, y2, addAngle = 0) {
+function createLine(x1, y1, x2, y2, addAngle = 0, lengthScale = 1) {
     const angle = createVector(x2 - x1, y2 - y1).heading();
     const displayF = () => {
         line(x1, y1, x2, y2);
@@ -79,11 +79,11 @@ function createLine(x1, y1, x2, y2, addAngle = 0) {
         translate(x, y);
         rotate(angle + addAngle);
     };
-    const length = dist(x1, y1, x2, y2);
+    const length = dist(x1, y1, x2, y2) * lengthScale;
     return new PathSegment(displayF, transformF, length);
 }
 //a section of a circle with a start angle and change in angle (clockwise is positive) constantly rotating with the arc
-function createArc(x, y, radius, startAngle, theta, addAngle = 0) {
+function createArc(x, y, radius, startAngle, theta, addAngle = 0, lengthScale = 1) {
     const endAngle = startAngle + theta;
     const drawStart = theta >= 0 ? startAngle : endAngle;
     const drawEnd = theta >= 0 ? endAngle : startAngle;
@@ -98,6 +98,6 @@ function createArc(x, y, radius, startAngle, theta, addAngle = 0) {
         translate(translateX, translateY);
         rotate(angle + addAngle);
     }
-    const length = radius * abs(theta);
+    const length = radius * abs(theta) * lengthScale;
     return new PathSegment(displayF, transformF, length);
 }

@@ -42,7 +42,7 @@ function createEnterPath(x, y, laneY, radius) {
     const inTheta = inMovingUp ? HALF_PI : -HALF_PI;
 
     //across
-    drivePath.addSegment(createLine(width + 100, laneY, inX, laneY));
+    drivePath.addSegment(createLine(x + width + 50, laneY, inX, laneY, 0, 0.5));
     //turnIn
     drivePath.addSegment(createArc(inX, inY, radius, inStartAngle, inTheta));
     //in
@@ -67,6 +67,12 @@ function createExitPath(x, y, laneY, radius) {
     //wait
     drivePath.addSegment(createPoint(outX, laneY, 50, outStartAngle))
     //across
-    drivePath.addSegment(createLine(outX, laneY, width + 100, laneY));
+    drivePath.addSegment(createLine(outX, laneY, x + width + 50, laneY, 0, 0.5));
+    return drivePath;
+}
+
+function createStationaryPath(x, y, angle) {
+    drivePath = new Path();
+    drivePath.addSegment(createPoint(x, y, 1, angle));
     return drivePath;
 }
