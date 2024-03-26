@@ -6,7 +6,7 @@ let transitionPoint = 0;
 
 const IDLE = 0;
 const TRANSITION = 1;
-let state = TRANSITION;
+let state = IDLE;
 const CAR_HEIGHT = 75;
 const CAR_WIDTH = 50;
 const SPOT_SPACING = 15;
@@ -21,12 +21,13 @@ function preload() {
 }
 
 function setup() {
+  currentDay = dayData.days[0];
+  select("#saturday").position(10, 10);
+  select("#sunday").position(80, 10);
+  select("#monday").position(140, 10);
   createCanvas(1300, 500);
   rectMode(CENTER);
-  currentDay = dayData.days[1];
-  //currentTransition = buildDayEnter(currentDay);
 
-  currentTransition = buildDayBetween(dayData.days[0], dayData.days[1]);
 }
 
 function draw() {
@@ -41,28 +42,38 @@ function draw() {
   }
 }
 
-function buildDayExit(day) {
-  function buildExit(id, car, row, position) {
-    const location = getSpotLocation(row, position);
-    const path = createExitPath(location.x, location.y, DEFAULT_LANE + random(-10, 10), DEFAULT_RADIUS);
-    return { car: car, path: path };
-  }
+function changeDay(num) {
+  if (state == TRANSITION) return;
+  const newDay = dayData.days[num];
+  if (currentDay == newDay) return;
+  currentTransition = buildDayBetween(currentDay, newDay);
+  currentDay = newDay;
   transitionPoint = 0;
+  state = TRANSITION;
+}
+
+function buildExit(id, car, row, position) {
+  const location = getSpotLocation(row, position);
+  const path = createExitPath(location.x, location.y, DEFAULT_LANE + random(-10, 10), DEFAULT_RADIUS);
+  return { car: car, path: path };
+}
+
+function buildDayExit(day) {
   return forAllCars(day, buildExit);
 }
 
+function buildEnter(id, car, row, position) {
+  const location = getSpotLocation(row, position);
+  const path = createEnterPath(location.x, location.y, DEFAULT_LANE + random(-10, 10), DEFAULT_RADIUS);
+  return { car: car, path: path };
+}
+
 function buildDayEnter(day) {
-  function buildEnter(car, row, position) {
-    const location = getSpotLocation(row, position);
-    const path = createEnterPath(location.x, location.y, DEFAULT_LANE + random(-10, 10), DEFAULT_RADIUS);
-    return { car: car, path: path };
-  }
-  transitionPoint = 0;
   return forAllCars(day, buildEnter);
 }
 
 function buildDayBetween(startDay, endDay) {
-  function h(id, car, row, position) {
+  function buildBetween(id, car, row, position) {
     const endCar = searchDay(endDay, id);
     if (!endCar.found) {
       return undefined;
@@ -77,10 +88,14 @@ function buildDayBetween(startDay, endDay) {
     const path = createBetweenPath(startLocation.x, startLocation.y, endLocation.x, endLocation.y, DEFAULT_LANE, DEFAULT_RADIUS);
     return { car: car, path: path };
   }
-  let out = forAllCars(startDay, h);
-  //TODO: find entering cars
-
+  let out = forAllCars(startDay, buildBetween);
   out = out.filter(e => e); //filter out undefined
+  let exits = forAllCars(startDay, buildExit);
+  let enters = forAllCars(endDay, buildEnter);
+  //filter out cars already in start day
+  exits = exits.filter(e => !(out.find(o => o.car == e.car)));
+  enters = enters.filter(e => !(out.find(o => o.car == e.car)));
+  out = out.concat(enters).concat(exits);
   return out;
 }
 
@@ -132,7 +147,6 @@ function forAllCars(day, func) {
 }
 
 function drawDay(day) {
-  const name = day.name;
   forAllCars(day, drawCarStationary);
 }
 
