@@ -1,5 +1,5 @@
-let dataTable;
-let carData;
+let tempCarData;
+let saturday;
 const CAR_HEIGHT = 75;
 const CAR_WIDTH = 50;
 const SPOT_SPACING = 15;
@@ -7,8 +7,10 @@ const parkingRows = [{ x: 0, y: 120, count: 19, ignore: [8, 9] }, { x: 0, y: 500
 let colors = [];
 
 function preload() {
-  dataTable = loadTable("data/example_data.csv", "csv", "header");
-  carData = loadJSON("data/sat1.json");
+  saturday = loadJSON("data/sat.json");
+  sunday = loadJSON("data/sun.json");
+  monday = loadJSON("data/mon.json");
+  tempCarData = loadJSON("data/cars.json");
 }
 
 function setup() {
@@ -18,7 +20,7 @@ function setup() {
 
 function draw() {
   background(150);
-  carData.cars.forEach(drawCarStationary);
+  saturday.cars.forEach(drawCarStationary);
   drawLines();
   drawGrassArea();
   checkHover();
@@ -31,7 +33,7 @@ function checkHover() {
       const inHorizontal = abs(carPosition.x - mouseX) < CAR_WIDTH / 2;
       const inVertical = abs(carPosition.y - mouseY) < CAR_HEIGHT / 2;
       if (inHorizontal && inVertical) {
-        const hoveringCar = carData.cars.find(car => car.row == row && car.index == i);
+        const hoveringCar = saturday.cars.find(car => car.row == row && car.index == i);
         if (hoveringCar) {
           carText(carPosition, hoveringCar);
         }
